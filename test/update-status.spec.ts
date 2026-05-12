@@ -8,12 +8,23 @@ describe('UpdateTransactionStatusUseCase', () => {
   let mockRepository: ITransactionRepository
   let mockStorage: IStorageProvider
 
-  const transactionId = crypto.randomUUID()
+  let transactionId: string
+  let receiptPath: string
 
   beforeEach(() => {
+    transactionId = crypto.randomUUID()
+    receiptPath = `/storage/receipt-${transactionId}.json`
+
     mockRepository = {
-      create: mock(() => Promise.resolve({ id: transactionId, trackingId: 'T-123' })),
+      create: mock(() =>
+        Promise.resolve({
+          id: transactionId,
+          trackingId: crypto.randomUUID(),
+        }),
+      ),
+
       updateStatus: mock(() => Promise.resolve()),
+
       findById: mock(() =>
         Promise.resolve({
           amount: 100,
@@ -22,9 +33,11 @@ describe('UpdateTransactionStatusUseCase', () => {
         }),
       ),
     }
+
     mockStorage = {
-      save: mock(() => Promise.resolve('/storage/receipt-123.json')),
+      save: mock(() => Promise.resolve(receiptPath)),
     }
+
     updateUseCase = new UpdateTransactionStatusUseCase(mockRepository, mockStorage)
   })
 
@@ -37,10 +50,13 @@ describe('UpdateTransactionStatusUseCase', () => {
     await updateUseCase.execute(input)
 
     expect(mockStorage.save).toHaveBeenCalled()
+
     expect(mockRepository.updateStatus).toHaveBeenCalledWith(
-      '123',
+      transactionId,
       'APPROVED',
-      expect.objectContaining({ receiptPath: '/storage/receipt-123.json' }),
+      expect.objectContaining({
+        receiptPath,
+      }),
     )
   })
 
