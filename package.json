@@ -1,14 +1,14 @@
 {
   "name": "transactions-basic",
-  "module": "index.ts",
+  "module": "main.ts",
   "type": "module",
   "private": true,
   "version": "1.0.0",
   "description": "CRUD con Arquitectura Hexagonal, Node.js, Express y Docker",
-  "main": "index.ts",
+  "main": "main.ts",
   "scripts": {
-    "start": "bun run src/index.ts",
-    "dev": "bun run src/index.ts",
+    "start": "bun run src/main.ts",
+    "dev": "bun run src/main.ts",
     "prepare": "husky"
   },
   "devDependencies": {
