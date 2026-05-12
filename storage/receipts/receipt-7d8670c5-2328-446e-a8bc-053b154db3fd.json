@@ -1,0 +1,8 @@
+{
+  "transactionId": "7d8670c5-2328-446e-a8bc-053b154db3fd",
+  "amount": 150.5,
+  "description": "Compra de suministros 2",
+  "userId": "a92681db-5f2b-4798-9b35-eb9e612f742d",
+  "generatedAt": "2026-05-12T22:22:19.048Z",
+  "status": "APPROVED"
+}
