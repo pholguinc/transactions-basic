@@ -1,3 +1,7 @@
-const port = process.env.PORT || 3000;
+export const getServerPort = () => {
+  return process.env.PORT || 3000
+}
 
-console.log(`🚀 Server running at http://localhost:${port}`);
+if (require.main === module) {
+  console.log(`🚀 Server running at http://localhost:${getServerPort()}`)
+}

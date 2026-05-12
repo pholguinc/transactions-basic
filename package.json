@@ -9,19 +9,30 @@
   "scripts": {
     "start": "bun run src/main.ts",
     "dev": "bun run src/main.ts",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/bun": "latest",
+    "@types/jest": "^30.0.0",
     "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "globals": "^17.6.0",
     "husky": "^9.1.7",
     "jest": "^30.4.2",
+    "jiti": "^2.7.0",
+    "prettier": "^3.8.3",
+    "ts-jest": "^29.4.9",
     "typescript-eslint": "^8.59.3"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
