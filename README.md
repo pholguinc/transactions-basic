@@ -122,9 +122,6 @@ Si deseas simular el entorno de producción usando Docker Compose:
 ```bash
 # Levantar en segundo plano
 docker-compose up -d --build
-
-# Ver logs
-docker-compose logs -f
 ```
 
 ---
