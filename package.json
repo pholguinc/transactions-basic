@@ -1,0 +1,40 @@
+{
+  "name": "transactions-basic",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CRUD con Arquitectura Hexagonal, Node.js, Express y Docker",
+  "main": "index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun run src/index.ts",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/bun": "latest",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "jest": "^30.4.2",
+    "typescript-eslint": "^8.59.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.20.0",
+    "uuid": "^14.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/domain/**/*.js",
+      "src/application/**/*.js"
+    ]
+  }
+}
